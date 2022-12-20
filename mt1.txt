@@ -1,0 +1,8 @@
+init
+acceptation1
+
+condition1
+instruction1
+
+condition2
+instruction2
