@@ -6,3 +6,6 @@ instruction1
 
 condition2
 instruction2
+
+q0,0
+qRight,_,>
