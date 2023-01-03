@@ -25,20 +25,26 @@ qchiffre1,1,_,_
 qchiffre1,1,_,_,>,-,-
 
 qcopy,0,_,_
-qcopy,_,0,_,>,>,-
+qcopy1,_,0,_,>,>,-
 
 qcopy,1,_,_
-qcopy,_,1,_,>,>,-
+qcopy1,_,1,_,>,>,-
 
-qcopy,_,_,_
-qleft1,_,_,_,<,-,-
+qcopy1,0,_,_
+qcopy1,_,0,_,>,>,-
+
+qcopy1,1,_,_
+qcopy1,_,1,_,>,>,-
+
+qcopy1,_,_,_
+qleft1,_,_,0,<,-,>
 
 qleft1,_,_,_
 qleft1,_,_,_,<,-,-
 
 // Calcul avec la méthode égyptienne
 qleft1,0,_,_
-qtestr1,_,0,_,<,>,-
+qtestr1,_,_,_,<,-,-
 
 qleft1,1,_,_
 qadd,_,_,_,-,-,-
@@ -46,6 +52,7 @@ qadd,_,_,_,-,-,-
 
 
 // Appel de la Machine de Turing Addition
+
 (qadd,_,_,_,Addition,qfinadd)
 
 qfinadd,_,_,_
@@ -90,7 +97,7 @@ qtestr1,_,_,_,<,-,-
 
 // On regarde si x = 0 (Si il y a encore des lettres {0, 1} sur le ruban 1)
 qtestr1,_,_,_
-qaccept,_,_,_,-,-,-
+qAccept,_,_,_,-,-,-
 
 qtestr1,0,_,_
 qdoubley,0,_,_,>,-,-

@@ -9,7 +9,7 @@ q0,0,_,_,>,-,-
 q0,1,_,_
 q0,1,_,_,>,-,-
 
-// Début de la Machine de Turing MT2'
+(qappel,0,0,1,addition,qfinappel)
 
 // Reads "#", moves second number to second tape.
 
@@ -195,7 +195,15 @@ q9,_,_,_,<,-,-
 q9,_,0,_
 q9,_,_,_,-,<,-
 
-q9,_,1,_
+
+
+(q9,_,1,_,egyptienne,q10)
+
+
+
+
+
+q9,_,2,_
 q9,_,_,_,-,<,-
 
 q9,_,_,0

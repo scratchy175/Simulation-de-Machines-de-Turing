@@ -1,0 +1,187 @@
+// input : x#y  ; x et y deux nombres binaire
+// output : z   ; z résultat de la multiplication binaire des deux nombres x et y selon la méthode égyptienne
+
+init: q0
+accept: qAccept
+
+// Copie de y sur le ruban 2
+
+q0,0,_,_
+qchiffre1,0,_,_,>,-,-
+
+q0,1,_,_
+qchiffre1,1,_,_,>,-,-
+
+q0,_,_,_
+qAccept,_,_,_,-,-,-
+
+qchiffre1,#,_,_
+qcopy,_,_,_,>,-,-
+
+qchiffre1,0,_,_
+qchiffre1,0,_,_,>,-,-
+
+qchiffre1,1,_,_
+qchiffre1,1,_,_,>,-,-
+
+qcopy,0,_,_
+qcopy1,_,0,_,>,>,-
+
+qcopy,1,_,_
+qcopy1,_,1,_,>,>,-
+
+qcopy1,0,_,_
+qcopy1,_,0,_,>,>,-
+
+qcopy1,1,_,_
+qcopy1,_,1,_,>,>,-
+
+qcopy1,_,_,_
+qleft1,_,_,0,<,-,>
+
+qleft1,_,_,_
+qleft1,_,_,_,<,-,-
+
+// Calcul avec la méthode égyptienne
+qleft1,0,_,_
+qtestr1,_,_,_,<,-,-
+
+qleft1,1,_,_
+qadd,_,_,_,-,-,-
+
+
+
+// Appel de la Machine de Turing Addition
+
+
+// Début de l'appel de la Machine de Turing Addition
+
+// input : y et z : deux nombres binaire respectivement sur le ruban 2 et 3 d'une machine à 3 rubans ; les têtes de lectures sont décalé d'une lettre à droites du mot
+// output : z   ; z résultat de l'addition binaire des deux nombres y et z sur le ruban 3
+
+qadd,_,_,_
+Additionq0,_,_,_,-,-,-
+
+// Début de l'addition
+Additionq0,_,_,_
+Additionq1,_,_,_,-,<,<
+
+Additionq1,_,0,0
+Additionq1,_,0,0,-,<,<
+
+Additionq1,_,0,1
+Additionq1,_,0,1,-,<,<
+
+Additionq1,_,1,0
+Additionq1,_,1,1,-,<,<
+
+Additionq1,_,1,1
+Additionq2,_,1,0,-,<,<
+
+
+Additionq1,_,0,_
+Additionq1,_,0,0,-,<,<
+
+Additionq1,_,1,_
+Additionq1,_,1,1,-,<,<
+
+Additionq1,_,_,0
+Additionq1,_,_,0,-,-,<
+
+Additionq1,_,_,1
+Additionq1,_,_,1,-,-,<
+
+
+// q2 correspond à la retenu
+
+Additionq2,_,0,0
+Additionq1,_,0,1,-,<,<
+
+Additionq2,_,0,1
+Additionq2,_,0,0,-,<,<
+
+Additionq2,_,1,0
+Additionq2,_,1,0,-,<,<
+
+Additionq2,_,1,1
+Additionq2,_,1,1,-,<,<
+
+
+Additionq2,_,_,1
+Additionq2,_,_,0,-,-,<
+
+Additionq2,_,_,0
+Additionq1,_,_,1,-,-,<
+
+Additionq2,_,1,_
+Additionq2,_,1,0,-,<,<
+
+Additionq2,_,0,_
+Additionq1,_,0,1,-,<,<
+
+
+// Fin de l'addition
+
+Additionq1,_,_,_
+qfinadd,_,_,_,-,-,-
+
+Additionq2,_,_,_
+qfinadd,_,_,1,-,-,<
+
+// Fin de l'appel de la Machine de Turing Addition
+
+
+qfinadd,_,_,_
+qright,_,_,_,-,>,>
+
+
+
+// On décale les rubans 2 et 3 le plus à droite possible
+qright,_,0,0
+qright,_,0,0,-,>,>
+
+qright,_,0,1
+qright,_,0,1,-,>,>
+
+qright,_,1,1
+qright,_,1,1,-,>,>
+
+qright,_,1,0
+qright,_,1,0,-,>,>
+
+qright,_,0,_
+qright,_,0,_,-,>,-
+
+qright,_,1,_
+qright,_,1,_,-,>,-
+
+qright,_,1,_
+qright,_,1,_,-,>,-
+
+qright,_,_,1
+qright,_,_,1,-,-,>
+
+qright,_,_,1
+qright,_,_,1,-,-,>
+
+qright,_,_,0
+qright,_,_,0,-,-,>
+
+qright,_,_,_
+qtestr1,_,_,_,<,-,-
+
+
+// On regarde si x = 0 (Si il y a encore des lettres {0, 1} sur le ruban 1)
+qtestr1,_,_,_
+qAccept,_,_,_,-,-,-
+
+qtestr1,0,_,_
+qdoubley,0,_,_,>,-,-
+
+qtestr1,1,_,_
+qdoubley,1,_,_,>,-,-
+
+
+// On double y
+qdoubley,_,_,_
+qleft1,_,0,_,<,>,-

@@ -1,0 +1,16 @@
+// input : Positionner la tête de lecture sur la lettre la plus à gauche de la bande numéro 1
+
+init: q0
+accept: qAccept
+
+q0,1,_
+q0,1,_,<,-
+
+q0,0,_
+q0,0,_,<,-
+
+q0,#,_
+q0,#,_,<,-
+
+q0,_,_
+qAccept,_,_,>,-

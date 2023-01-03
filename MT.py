@@ -101,7 +101,7 @@ qleft1, 0, 1,0
 qleft1 0,1,0, -,-,<"""
 
 #insert(0, x) au debut ; append(x) a la fin
-mt1 = MT("111#1110","mt1.txt")
+mt1 = MT("111#1110","TM/mt1.txt")
 #print(mt1.transition)
 #print(tuple(("1,2,3,4,5".split(sep=",", maxsplit=1)[1]).split(",")))
 #mt1.step()
@@ -127,7 +127,7 @@ mt1.calcul()
 
 
 #linker("mt1.txt", "mt2.txt")
-#mt3 = MT("111#1110", "./Turing_Machine/mt1.txt")
+#mt3 = MT("111#1110", "./TM/mt1.txt")
 
 
 

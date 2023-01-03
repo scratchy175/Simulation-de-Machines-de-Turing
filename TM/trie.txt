@@ -10,7 +10,7 @@ qCopy1,_,0,>,>
 
 qCopy1,#,_
 qLeft2,_,#,>,<
-//rajouter ici transi left
+
 qLeft2,0,0
 qLeft2,0,0,-,<
 
@@ -34,7 +34,7 @@ qCheck1,1,#,-,>
 
 qLeft2,0,#
 qCheck1,0,#,-,>
-//quelque par par la fin du Left
+
 
 //verification > ou <
 
@@ -65,11 +65,17 @@ qRight1,1,0,>,>
 qCheck1,0,1
 qInserve101,1,0,>,>
 
-qInserve101, 0,1
+qInserve101,0,1
 qRight1,1,0,>,>
 
 qInserve101,1,0
 qRight1,0,1,>,>
+
+qInserve101,0,0
+qRight1,0,0,>,>
+
+qInserve101,1,1
+qRight1,1,1,>,>
 
 
 //on ne fait rien on passe au suivant
@@ -97,7 +103,6 @@ qCheck111,0,1
 qRight1,1,0,>,>
 
 
-//
 //on se repositionne
 qRight1,1,0
 qRight1,1,0,>,>
