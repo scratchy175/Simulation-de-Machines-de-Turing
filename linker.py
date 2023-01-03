@@ -15,25 +15,27 @@ def linker (file1, file2, out):
         if "(" not in val:
             lines3.append(val)
             continue
-
+        [qappel,0,0,1,MT2,qfinappel]
         line_temp = val.strip().replace(" ", "")[1:-1].split(sep = ',')
-        lines3.append("// Début de la Machine de Turing {}'\n".format(line_temp[-2]))
+        titre = line_temp[-2]
+        lines3.append("// Début de la Machine de Turing {}'\n".format(titre))
 
         for val2 in lines2:
             if val2 == "" or val2[0:2] == "//" or val2[0:4] == "name":
                 continue
             if val2[0:4].lower() == "init":
-                val2 = val2.replace("init:", "")
-                init3 = val2
+                init3 = val2.replace("init:", "").strip()
                 continue
+
             if val2[0:6].lower() == "accept":
-                val2 = val2.replace("accept:", "")
-                accept3 = val2
+                accept3 = val2.replace("accept:", "").strip()
+
+                transition = ','.join(line_temp[0:-2])
+                lines3.append(transition)
+                lines3.append(titre + init3 + ',' + ','.join(line_temp[1:-2]) + ',' + ','.join(['_' for _ in range(len(line_temp[1:-2]))]) + '\n')
                 continue
 
-            temp = "".format(line_temp[0:-2])
-            print(temp)
-
+            lines3.append()
 
 
 

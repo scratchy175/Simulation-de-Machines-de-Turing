@@ -12,11 +12,11 @@ def test_question_3(mot, fichier):
 
 
 def test_question_5(mot, fichier):
-    mt5 = MT(mot, fichier + ".txt")
+    mt5 = MT(mot, "/Q5/"+ fichier + ".txt")
     mt5.calcul()
 
 def test_question_7(mot):
-    linker("pre_egyptienne", "addition.txt", "post_egyptienne.txt")
+    linker("pre_egyptienne", "addition.txt", "post_egyptienne.txt")  #/TM/egyptienne/
     mt7 = MT(mot, "post_egyptienne.txt")
     mt7.calcul()
 
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     elif sys.argv[0] == "testQ3":
         test_question_3(sys.argv[1], sys.argv[2])
     elif sys.argv[0] == "testQ5":
-        test_question_5(sys.argv[1], sys.argv[2])
+        test_question_5(sys.argv[1], sys.argv[2].lower())
     elif sys.argv[0] == "testQ7":
         test_question_7(sys.argv[1])  
     elif sys.argv[0] == "testQ8":
