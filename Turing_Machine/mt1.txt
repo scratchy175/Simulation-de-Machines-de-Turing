@@ -9,8 +9,7 @@ q0,0,_,_,>,-,-
 q0,1,_,_
 q0,1,_,_,>,-,-
 
-(qappel,0,0,1
-MT2.txt,0,0,1,-,-,-)
+(qappel,0,0,1,MT2,qfinappel)
 
 // Reads "#", moves second number to second tape.
 

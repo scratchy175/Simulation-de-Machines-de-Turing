@@ -12,38 +12,59 @@ def linker (file1, file2, out):
 
     lines3 = []
     for val in lines1:
-        if "(" not in val or ")":
+        if "(" not in val:
             lines3.append(val)
             continue
-        if "(" in val:
-            temp = val
-            continue
-        temp = lines1[lines1.index(val)-1]
-        lines3.append("// Description de la machine M'\n")
-        lines3.append(val.replace(" ", "")[1:])
+
+        line_temp = val.strip().replace(" ", "")[1:-1].split(sep = ',')
+        lines3.append("// Début de la Machine de Turing {}'\n".format(line_temp[-2]))
+
         for val2 in lines2:
-            if val2[0:2] == "//":
+            if val2 == "" or val2[0:2] == "//" or val2[0:4] == "name":
                 continue
             if val2[0:4].lower() == "init":
-                #val2[5:] + val suivant
-                
-                pass
-#recuperer init du lines 2 et changer les inits
+                val2 = val2.replace("init:", "")
+                init3 = val2
+                continue
+            if val2[0:6].lower() == "accept":
+                val2 = val2.replace("accept:", "")
+                accept3 = val2
+                continue
+
+            temp = "".format(line_temp[0:-2])
+            print(temp)
+
+
+
+
+
+
 
 
     with open (out, "w") as f3:
-        f3.writelines(lines1)
+        f3.writelines(lines3)
     print(lines3)
+
+
+
+
+
+
+
+
+
+
     ##on parcours les lines du premier fichier et on les met dans une liste et a la fin on ecrit la list dans le fichier out ou alors chaque ligne on l'ecrit dans le fichier out
     ## si on tombe sur une transition de la forme ..... -> ..... alors on commence a lire le deuxieme fichier et on fait des trucs dedans  
 
 
-linker("mt1.txt", "mt1.txt", "file3.txt")
+linker("Turing_Machine/mt1.txt", "Turing_Machine/addition.txt", "Turing_Machine/file3.txt")
 """
     (qappel, (0,0,1), MT2, qfin_appel)
 à rajouter dans le .txt
-    (qappel,0,0,1
-    MT2.txt,0,0,1,-,-,-)
+    (qappel,0,0,1,MT2.txt,qfin_appel)
+
+    qfin_appel,0,0,1
 
 à rajouterc dans le nouveau .txt grace au code python :
 
@@ -69,5 +90,45 @@ remets lines1 partie 2
 
 enregistrer dans fichier 3
 
+
+
+(qappel,0,0
+MT2,qfin_appel)
+qapelle,0,0
+q1,0,0,-,-
+
+
+// CODE DE MT1
+q0,#,_
+q2,_,#,>,<
+
+q0, ----
+qleft,-----
+
+
+//DANS LE FICHIER 2
+init : q1
+accept: qaccept
+
+q1,0,0
+q1,0,0,-,<
+
+q1,0,1
+q1,0,1,-,<
+
+q1,1,0
+q1,1,0,-,<
+
+q1,1,_
+qAccept,1,_,-,>
+
+q1,0,_
+qAccept,0,_,-,>
+
+
+//ON SORT DU FICHiER 2
+//SUITE DE MT1
 """
+
+
 

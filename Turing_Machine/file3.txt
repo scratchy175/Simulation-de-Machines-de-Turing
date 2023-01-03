@@ -9,8 +9,7 @@ q0,0,_,_,>,-,-
 q0,1,_,_
 q0,1,_,_,>,-,-
 
-(qappel,0,0,1
-MT2.txt,0,0,1,-,-,-)
+// Début de la Machine de Turing MT2'
 
 // Reads "#", moves second number to second tape.
 

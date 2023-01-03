@@ -17,7 +17,7 @@ class MT:
         with open(self.fichier, "r") as f:
             for line in f:
                 line = line.strip().replace(" ", "").lower()
-                if line == "" or line[0:2] == "//" or line[0:5] == "name":
+                if line == "" or line[0:2] == "//" or line[0:4] == "name":
                     continue
                 if cpt == 0:
                     line = line.replace("init:", "")
@@ -127,5 +127,9 @@ mt1.calcul()
 
 
 #linker("mt1.txt", "mt2.txt")
-mt3 = MT("111#1110", "mt1.txt")
-mt3.transition
+#mt3 = MT("111#1110", "./Turing_Machine/mt1.txt")
+
+
+
+
+

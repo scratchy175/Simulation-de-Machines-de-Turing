@@ -1,0 +1,136 @@
+init: qCopy1
+accept: qAccept
+
+
+qCopy1,1,_
+qCopy1,_,1,>,>
+
+qCopy1,0,_
+qCopy1,_,0,>,>
+
+qCopy1,#,_
+qLeft1,_,#,>,<
+//rajouter ici transi left
+qLeft1,0,0
+qLeft1,0,0,-,<
+
+qLeft1,0,1
+qLeft1,0,1,-,<
+
+qLeft1,1,0
+qLeft1,1,0,-,<
+
+qLeft1,1,1
+qLeft1,1,1,-,<
+
+qLeft1,1,_
+qCheck1,1,_,-,>
+
+qLeft1,0,_
+qCheck1,0,_,-,>
+
+qLeft1,1,#
+qCheck1,1,#,-,>
+
+qLeft1,0,#
+qCheck1,0,#,-,>
+//quelque par par la fin du Left
+
+//verification > ou <
+
+//si 00 alors faut regarder les deux suivants
+qCheck1,0,0
+qCheck100,0,0,>,>
+
+//on regarde lees deux suivants
+// cas chiant mais enfaite non
+qCheck100,0,0
+qRight1,0,0,>,>
+
+// cas chiant mais enfaite non
+qCheck100,1,1
+qRight1,1,1,>,>
+
+// passe a la suite
+qCheck100,1,0
+qRight1,1,0,>,>
+
+//inverser les deux et continue car les deux avant sont les memes
+qCheck100,0,1
+qRight1,1,0,>,>
+//////////
+
+//01 donc on inverse
+qCheck1,0,1
+qInserve101,1,0,>,>
+
+qInserve101, 0,1
+qRight1,1,0,>,>
+
+qInserve101,1,0
+qRight1,0,1,>,>
+
+
+//on ne fait rien on passe au suivant
+qCheck1,1,0
+qRight1,1,0,>,>
+
+//si 11 alors il faut regarder les deux suivants
+qCheck1,1,1
+qCheck111,1,1,>,>
+
+//cas chiant
+qCheck111,0,0
+qRight1,0,0,>,>
+
+//cas chiant
+qCheck111,1,1
+qRight1,1,1,>,>
+
+// ya rien qui change on passe a la suite
+qCheck111,1,0
+qRight1,1,0,>,>
+
+//inverser les deux et continue car les deux avant sont les memes
+qCheck111,0,1
+qRight1,1,0,>,>
+
+
+//
+//on se repositionne
+qRight1,1,0
+qRight1,1,0,>,>
+
+qRight1,0,1
+qRight1,0,1,>,>
+
+qRight1,0,0
+qRight1,0,0,>,>
+
+qRight1,1,1
+qRight1,1,1,>,>
+
+qRight1,#,#
+qLeft1,#,#,>,<
+
+//fin premiere etape
+qRight1,_,#
+qLeft2,_,#,<,>
+
+// premiere bande reviens au debut
+qLeft2,1,_
+qLeft2,1,_,<,-
+
+qLeft2,0,_
+qLeft2,0,_,<,-
+
+qLeft2,#,_
+qLeft2,#,_,<,-
+
+qLeft2,_,_
+qCopy1,_,_,>,-
+
+
+//condition d'arret
+qCopy1,_,_
+qAccept,_,_,-,-

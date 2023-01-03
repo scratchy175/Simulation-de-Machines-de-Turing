@@ -1,0 +1,71 @@
+// input : y et z : deux nombres binaire respectivement sur le ruban 2 et 3 d'une machine à 3 rubans ; les têtes de lectures sont décalé d'une lettre à droites du mot
+// output : z   ; z résultat de l'addition binaire des deux nombres y et z sur le ruban 3
+
+init: q0
+accept: qAccept
+
+// Début de l'addition
+q0,_,_,_
+q1,_,_,_,-,<,<
+
+q1,_,0,0
+q1,_,0,0,-,<,<
+
+q1,_,0,1
+q1,_,0,1,-,<,<
+
+q1,_,1,0
+q1,_,1,1,-,<,<
+
+q1,_,1,1
+q2,_,1,0,-,<,<
+
+
+q1,_,0,_
+q1,_,0,0,-,<,<
+
+q1,_,1,_
+q1,_,1,1,-,<,<
+
+q1,_,_,0
+q1,_,_,0,-,-,<
+
+q1,_,_,1
+q1,_,_,1,-,-,<
+
+
+// q2 correspond à la retenu
+
+q2,_,0,0
+q1,_,0,1,-,<,<
+
+q2,_,0,1
+q2,_,0,0,-,<,<
+
+q2,_,1,0
+q2,_,1,0,-,<,<
+
+q2,_,1,1
+q1,_,1,1,-,<,<
+
+
+q2,_,_,1
+q2,_,_,0,-,-,<
+
+q2,_,_,0
+q1,_,_,1,-,-,<
+
+q2,_,1,_
+q2,_,1,0,-,<,<
+
+q2,_,0,_
+q1,_,0,1,-,<,<
+
+
+// Fin de l'addition
+
+q1,_,_,_
+qAccept,_,_,_,-,-,-
+
+q2,_,_,_
+qAccept,_,_,1,-,-,<
