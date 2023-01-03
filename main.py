@@ -4,11 +4,11 @@ import sys
 
 
 def test_question_2(mot, fichier):
-    mt2 = MT(mot, "Q7-8/" + fichier + ".txt")
+    mt2 = MT(mot, "TM/" + fichier + ".txt")
     mt2.step()
 
 def test_question_3(mot, fichier):
-    mt2 = MT(mot, "Q7-8/" + fichier)
+    mt2 = MT(mot, "TM/" + fichier)
     mt2.calcul()
 
 def test_question_5(mot, fichier):
