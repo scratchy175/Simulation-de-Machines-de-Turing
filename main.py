@@ -1,11 +1,13 @@
-from TuringMachine import MT
+from TuringMachine import MT, affichage
 from linkerMT import linker
 import sys
 
 
 def test_question_2(mot, fichier):
-    mt2 = MT(mot, "TM/" + fichier + ".txt")
+    mt2 = MT(mot, "TM/" + fichier)
+    affichage(mt2,0)
     mt2.step()
+    affichage(mt2,1)
 
 def test_question_3(mot, fichier):
     mt2 = MT(mot, "TM/" + fichier)
@@ -16,7 +18,7 @@ def test_question_5(mot, fichier):
     mt5.calcul()
 
 def test_question_7(mot):
-    linker("Q7-8/pre_egyptienne", "Q7-8/addition.txt", "Q7-8/post_egyptienne.txt")
+    linker("Q7-8/pre_egyptienne.txt", "Q7-8/addition.txt", "Q7-8/post_egyptienne.txt")
     mt7 = MT(mot, "Q7-8/post_egyptienne.txt")
     mt7.calcul()
 
