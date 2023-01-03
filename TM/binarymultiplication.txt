@@ -1,3 +1,24 @@
+// Input: a#b (where a and b are binary numbers)
+// Ouput: a*b
+// Example: 101#10 outputs 1010
+//
+// 
+//
+// ------- States -----------|
+// q0 - qStart               |
+// q1 - qInCopy              |
+// q2 - qInCopyBack          |
+// q3 - qAnalize             |
+// q4 - qShift               |
+// q5 - qSum                 |
+// q6 - qErase               |
+// q7 - qSumaBack            |
+// q8 - qCarry               |
+// q9 - qFinalCopy           |
+// q10 - qFinal              |
+//---------------------------\'
+
+name: Binary Multiplication
 init: q0
 accept: q10
 
@@ -8,8 +29,6 @@ q0,0,_,_,>,-,-
 
 q0,1,_,_
 q0,1,_,_,>,-,-
-
-(qappel,0,0,1,addition,qfinappel)
 
 // Reads "#", moves second number to second tape.
 
@@ -195,15 +214,7 @@ q9,_,_,_,<,-,-
 q9,_,0,_
 q9,_,_,_,-,<,-
 
-
-
-(q9,_,1,_,egyptienne,q10)
-
-
-
-
-
-q9,_,2,_
+q9,_,1,_
 q9,_,_,_,-,<,-
 
 q9,_,_,0

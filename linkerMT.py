@@ -3,7 +3,6 @@
 # Quand M′ a fini son calcul, alors M passe dans l’état q ′. On a en entrée le code de deux machines de Turing M1 et M2 tel que la machine M1 fait des appels à M2. 
 # Votre fonction doit produire une machine M3, sans appel à M2 qui réalise le même calcul que M1. Bravo, vous venez de réaliser un linker.
 
-
 def linker (file1, file2, out):
     with open (file1, "r") as f1:
         lines1 = f1.readlines()
@@ -48,9 +47,3 @@ def linker (file1, file2, out):
 
     with open (out, "w") as f3:
         f3.writelines(lines3)
-    print(lines3)
-
-
-#linker("TM/mt1.txt", "TM/addition.txt", "TM/file3.txt")
-#linker("TM/pre_egyptienne.txt", "TM/addition.txt", "TM/post_egyptienne.txt")
-#linker("TM/pre_trie.txt", "TM/left1.txt", "TM/post_trie.txt")

@@ -65,7 +65,7 @@ qRight1,1,0,>,>
 qCheck1,0,1
 qInserve101,1,0,>,>
 
-qInserve101, 0,1
+qInserve101,0,1
 qRight1,1,0,>,>
 
 qInserve101,1,0
@@ -121,14 +121,9 @@ qLeft2,#,#,>,<
 
 //fin premiere etape
 qRight1,_,#
-qLeft1,_,#,<,>
+qLeft1,_,#,-,>
 
-// Appel de la Machine de Turing Left1
-(qLeft1,1,_,left1,qfinLeft1)
-
-
-qfinLeft1,_,_
-qCopy1,_,_,>,-
+(qLeft1,_,_,left1,qCopy1)
 
 
 //condition d'arret

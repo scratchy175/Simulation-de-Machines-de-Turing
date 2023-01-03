@@ -65,7 +65,7 @@ qRight1,1,0,>,>
 qCheck1,0,1
 qInserve101,1,0,>,>
 
-qInserve101, 0,1
+qInserve101,0,1
 qRight1,1,0,>,>
 
 qInserve101,1,0
@@ -121,34 +121,43 @@ qLeft2,#,#,>,<
 
 //fin premiere etape
 qRight1,_,#
-qLeft1,_,#,<,>
+qLeft1,_,#,-,>
 
-// Appel de la Machine de Turing Left1
 
 // Début de l'appel de la Machine de Turing left1
 
 // input : Positionner la tête de lecture sur la lettre la plus à gauche de la bande numéro 1
 
-qLeft1,_,#
-left1q0,_,#,-,-
+qLeft1,_,_
+left1q0,_,_,-,-
 
 left1q0,1,_
-left1q0,1,_,<,-
+left1q1,1,_,<,-
 
 left1q0,0,_
-left1q0,0,_,<,-
+left1q1,0,_,<,-
 
 left1q0,#,_
-left1q0,#,_,<,-
+left1q1,#,_,<,-
 
 left1q0,_,_
-qfinLeft1,_,_,>,-
+left1q1,_,_,<,-
+
+
+left1q1,1,_
+left1q1,1,_,<,-
+
+left1q1,0,_
+left1q1,0,_,<,-
+
+left1q1,#,_
+left1q1,#,_,<,-
+
+left1q1,_,_
+qCopy1,_,_,>,-
+
 // Fin de l'appel de la Machine de Turing left1
 
-
-
-qfinLeft1,_,_
-qCopy1,_,_,>,-
 
 
 //condition d'arret
