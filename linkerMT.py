@@ -19,7 +19,7 @@ def linker (file1, file2, out):
         titre = line_temp[-2]
         lines3.append("\n// Début de l'appel de la Machine de Turing {}\n\n".format(titre))
 
-        with open ('TM/' + titre + '.txt', "r") as f2:
+        with open ('Q7-8/' + titre + '.txt', "r") as f2:
             lines2 = f2.readlines()
 
         for val2 in lines2:
