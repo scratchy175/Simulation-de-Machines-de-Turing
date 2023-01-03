@@ -4,17 +4,17 @@ import sys
 
 
 def test_question_2(mot, fichier):
-    mt2 = MT(mot, "TM/" + fichier)
+    mt2 = MT(mot, f"TM/{fichier}")
     affichage(mt2,0)
     mt2.step()
     affichage(mt2,1)
 
 def test_question_3(mot, fichier):
-    mt2 = MT(mot, "TM/" + fichier)
+    mt2 = MT(mot, f"TM/{fichier}")
     mt2.calcul()
 
 def test_question_5(mot, fichier):
-    mt5 = MT(mot, "Q5/" + fichier + ".txt")
+    mt5 = MT(mot, f"Q5/{fichier}.txt")
     mt5.calcul()
 
 def test_question_7(mot):

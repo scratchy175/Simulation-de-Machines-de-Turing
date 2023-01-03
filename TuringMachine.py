@@ -4,8 +4,8 @@ class MT:
         self.fichier = fichier
         self.etat_accept = ""
         self.etat_courant = ""
-        self.transition = dict()
-        self.position_tetes = list()
+        self.transition = {}
+        self.position_tetes = []
         mot += "_"
         self.etat_bandes = [list(mot)]
         if fichier != "None":
@@ -17,9 +17,9 @@ class MT:
         with open(self.fichier, "r") as f:
             for line in f:
                 line = line.strip().replace(" ", "").lower()
-                if line == "" or line[0:2] == "//":
+                if line == "" or line[:2] == "//":
                     continue
-                elif line[0:4] == "name":
+                elif line[:4] == "name":
                     name = line.replace("name:", "")
                     self.name = name
                 elif cpt == 0:
