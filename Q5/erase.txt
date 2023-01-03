@@ -1,0 +1,100 @@
+// Input: i#a (avec 'i' le numéro du ruban de travail entre 1 et 3, et 'a' le mot)
+
+init: q0
+accept: qAccept
+
+q0,1,_,_
+qr1,_,_,_,>,-,-
+
+qr1,#,_,_
+qerase1,_,_,_,>,-,-
+
+q0,2,_,_
+qr2,_,_,_,>,-,-
+
+qr2,#,_,_
+qr2,_,_,_,>,-,-
+
+q0,3,_,_
+qr3,_,_,_,>,-,-
+
+qr3,#,_,_
+qr3,_,_,_,>,-,-
+
+// Début de la copie vers le ruban choisi
+
+qr2,1,_,_
+qr2,_,1,_,>,>,-
+
+qr2,0,_,_
+qr2,_,0,_,>,>,-
+
+qr2,_,_,_
+qgauche2,_,_,_,-,<,-
+
+qr3,1,_,_
+qr3,_,_,1,>,-,>
+
+qr3,0,_,_
+qr3,_,_,0,>,-,>
+
+qr3,_,_,_
+qgauche3,_,_,_,-,-,<
+
+// Retour à gauche pour les rubans 2 et 3
+
+qgauche2,_,0,_
+qgauche2,_,0,_,-,<,-
+
+qgauche2,_,1,_
+qgauche2,_,1,_,-,<,-
+
+qgauche2,_,_,_
+qerase2,_,_,_,-,>,-
+
+qgauche3,_,_,0
+qgauche3,_,_,0,-,-,<
+
+qgauche3,_,_,1
+qgauche3,_,_,1,-,-,<
+
+qgauche3,_,_,_
+qerase3,_,_,_,-,-,>
+
+
+//// Début de la machine de Turing Erase
+
+// Déplacement vers la droite si i = 1
+
+qerase1,1,_,_
+qerase1,_,_,_,>,-,-
+
+qerase1,0,_,_
+qerase1,_,_,_,>,-,-
+
+qerase1,_,_,_
+qAccept,_,_,_,-,-,-
+
+
+// Déplacement vers la droite si i = 2
+
+qerase2,_,1,_
+qerase2,_,_,_,-,>,-
+
+qerase2,_,0,_
+qerase2,_,_,_,-,>,-
+
+qerase2,_,_,_
+qAccept,_,_,_,-,-,-
+
+
+// Déplacement vers la droite si i = 3
+
+qerase3,_,_,1
+qerase3,_,_,_,-,-,>
+
+qerase3,_,_,0
+qerase3,_,_,_,-,-,>
+
+qerase3,_,_,_
+qAccept,_,_,_,-,-,-

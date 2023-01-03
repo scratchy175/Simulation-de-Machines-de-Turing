@@ -1,0 +1,92 @@
+// input : i#j#a (Copie de la bande i vers la bande j, a le mot; i un entier entre 1 et 2 et j un entier entre 2 et 3 et i différent de j)
+
+init: q0
+accept: qAccept
+
+
+// Lecture de i et de j pour i = 1
+q0,1,_,_
+q1,_,_,_,>,-,-
+
+q1,#,_,_
+q1,_,_,_,>,-,-
+
+q1,2,_,_
+q12,_,_,_,>,-,-
+
+q1,3,_,_
+q13,_,_,_,>,-,-
+
+q12,#,_,_
+qcopy12,_,_,_,>,-,-
+
+q13,#,_,_
+qcopy13,_,_,_,>,-,-
+
+// Lecture de i et de j pour i = 2
+q0,2,_,_
+q2,_,_,_,>,-,-
+
+q2,#,_,_
+q2,_,_,_,>,-,-
+
+q2,3,_,_
+q23,_,_,_,>,-,-
+
+q23,#,_,_
+qcopy23inter,_,_,_,>,-,-
+
+// Copie du ruban 1 vers le ruban 2 afin de montrer la copie entre 2 et 3
+qcopy23inter,0,_,_
+qcopy23inter,_,0,_,>,>,-
+
+qcopy23inter,1,_,_
+qcopy23inter,_,1,_,>,>,-
+
+qcopy23inter,_,_,_
+qgauche23,_,_,_,-,<,-
+
+qgauche23,_,0,_
+qgauche23,_,0,_,-,<,-
+
+qgauche23,_,1,_
+qgauche23,_,1,_,-,<,-
+
+qgauche23,_,_,_
+qcopy23,_,_,_,-,>,-
+
+
+
+//// Début de la machine de Turing Copy
+
+// Copie du ruban i = 1 vers j = 2
+qcopy12,0,_,_
+qcopy12,0,0,_,>,>,-
+
+qcopy12,1,_,_
+qcopy12,1,1,_,>,>,-
+
+qcopy12,_,_,_
+qAccept,_,_,_,<,<,-
+
+
+// Copie du ruban i = 1 vers j = 3
+qcopy13,0,_,_
+qcopy13,0,_,0,>,-,>
+
+qcopy13,1,_,_
+qcopy13,1,_,1,>,-,>
+
+qcopy13,_,_,_
+qAccept,_,_,_,<,-,<
+
+
+// Copie du ruban i = 2 vers j = 3
+qcopy23,_,0,_
+qcopy23,_,0,0,-,>,>
+
+qcopy23,_,1,_
+qcopy23,_,1,1,-,>,>
+
+qcopy23,_,_,_
+qAccept,_,_,_,-,<,<
